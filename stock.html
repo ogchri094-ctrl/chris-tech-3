@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Tienda iPhones Ultra Premium</title>
+<style>
+/* ------------------- BASE ------------------- */
+body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:white;overflow-x:hidden;}
+header{position:fixed;top:0;width:100%;background:#1e293b;padding:15px 5%;display:flex;align-items:center;justify-content:space-between;z-index:1000;box-shadow:0 3px 15px rgba(0,0,0,0.2);}
+header h1{font-size:24px;color:#00f7ff;}
+header input[type="search"]{padding:8px 12px;border-radius:20px;border:none;width:180px;max-width:50%;}
+header .btn-header{padding:8px 15px;background:#00f7ff;color:#0f172a;border:none;border-radius:20px;cursor:pointer;}
+.tienda{padding:120px 5% 60px 5%;}
+.carrusel-titulo{font-size:28px;margin-bottom:15px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.carrusel-titulo p{font-size:14px;color:#aaa;margin-left:10px;margin-top:5px;}
+.carrusel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:15px;scroll-behavior:smooth;margin-bottom:50px;position:relative;}
+.carrusel::-webkit-scrollbar{display:none;}
+.tarjeta{flex:0 0 220px;scroll-snap-align:start;min-width:220px;position:relative;background:#1e293b;border-radius:20px;text-align:center;padding:20px;transition:transform 0.5s,box-shadow 0.5s,opacity 0.6s;opacity:0;transform:translateY(20px);transform-style:preserve-3d;}
+.tarjeta.show{opacity:1;transform:translateY(0);}
+.tarjeta img{width:100%;border-radius:15px;margin-bottom:10px;transition:transform 0.5s;}
+.tarjeta:hover{transform:translateY(-10px) rotateY(5deg) scale(1.05);box-shadow:0 15px 40px rgba(0,247,255,0.5);}
+.badge{position:absolute;top:10px;left:10px;background:#00f7ff;color:#0f172a;padding:5px 12px;border-radius:15px;font-weight:bold;font-size:14px;text-transform:uppercase;animation:badgeGlow 1.5s infinite alternate;}
+@keyframes badgeGlow{0%{box-shadow:0 0 5px #00f7ff;}100%{box-shadow:0 0 20px #00f7ff;}}
+.precio{font-weight:bold;font-size:16px;margin:10px 0;}
+.precio .old{text-decoration:line-through;color:#aaa;margin-right:5px;}
+.btn-card{display:inline-block;margin:5px 5px 0 5px;padding:8px 15px;border-radius:20px;background:linear-gradient(45deg,#00f7ff,#00c3ff);color:#0f172a;text-decoration:none;font-weight:bold;transition:0.3s;}
+.btn-card:hover{transform:scale(1.05);box-shadow:0 0 20px #00f7ff;}
+.descripcion{font-size:14px;color:#ccc;margin-top:12px;line-height:1.6;}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:10px;}
+.dot{width:10px;height:10px;background:#1e293b;border-radius:50%;cursor:pointer;transition:0.3s;}
+.dot.active{background:#00f7ff;}
+.whatsapp-float{position:fixed;bottom:20px;right:20px;width:55px;height:55px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 15px rgba(0,0,0,0.25);}
+.whatsapp-float img{width:30px;height:30px;}
+
+/* ------------------- RESPONSIVE ------------------- */
+@media(max-width:1024px){.tarjeta{flex:0 0 180px;min-width:180px;padding:15px;}}
+@media(max-width:768px){.tarjeta{flex:0 0 70%;min-width:70%;}.tarjeta img{width:80%;}}
+@media(max-width:480px){header h1{font-size:20px;}header input[type="search"]{width:140px;}}
+body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(-45deg,#1e293b,#0f172a,#1e293b,#0f172a);background-size:400% 400%;animation:gradientBG 15s ease infinite;z-index:-1;}
+@keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+@media(max-width:480px){
+    .tarjeta{flex:0 0 80%;min-width:80%;}
+    .tarjeta img{width:100%;}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<h1>iStore</h1>
+<input type="search" placeholder="Buscar iPhone...">
+<button class="btn-header">Buscar</button>
+</header>
+
+<section class="tienda">
+
+<!-- ------------------- iPhone X ------------------- -->
+<div class="carrusel-titulo"><span>iPhone X</span><p>Explora todos los iPhone X</p></div>
+<div class="carrusel" data-model="X">
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-x.jpg" alt="iPhone X"><h3>iPhone X</h3><p class="precio">$8,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Negro 64GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-x-white.jpg" alt="iPhone X Blanco"><h3>iPhone X</h3><p class="precio">$9,199</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Blanco 128GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-x-blue.jpg" alt="iPhone X Azul"><h3>iPhone X</h3><p class="precio">$9,399</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Azul 256GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-x-red.jpg" alt="iPhone X Rojo"><h3>iPhone X</h3><p class="precio">$9,599</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Rojo 64GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-x-green.jpg" alt="iPhone X Verde"><h3>iPhone X</h3><p class="precio">$9,799</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Verde 128GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-x-gold.jpg" alt="iPhone X Oro"><h3>iPhone X</h3><p class="precio">$9,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Oro 256GB</p></div>
+</div>
+
+<!-- ------------------- iPhone 11 ------------------- -->
+<div class="carrusel-titulo"><span>iPhone 11</span><p>Explora todos los iPhone 11</p></div>
+<div class="carrusel" data-model="11">
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-11.jpg" alt="iPhone 11"><h3>iPhone 11</h3><p class="precio">$8,499</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Negro 64GB</p></div>
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-11-red.jpg" alt="iPhone 11 Rojo"><h3>iPhone 11</h3><p class="precio">$8,699</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Rojo 128GB</p></div>
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-11-green.jpg" alt="iPhone 11 Verde"><h3>iPhone 11</h3><p class="precio">$8,899</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Verde 64GB</p></div>
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-11-white.jpg" alt="iPhone 11 Blanco"><h3>iPhone 11</h3><p class="precio">$9,099</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Blanco 128GB</p></div>
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-11-blue.jpg" alt="iPhone 11 Azul"><h3>iPhone 11</h3><p class="precio">$9,299</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Azul 256GB</p></div>
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-11-gold.jpg" alt="iPhone 11 Oro"><h3>iPhone 11</h3><p class="precio">$9,499</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Oro 128GB</p></div>
+</div>
+
+<!-- ------------------- iPhone 12 → 17 ------------------- -->
+<!-- Para no hacer demasiado largo el mensaje, puedo continuar generando los carruseles hasta el 17 con 6 modelos cada uno en el siguiente bloque. -->
+
+<!-- ------------------- iPhone 12 ------------------- -->
+<div class="carrusel-titulo"><span>iPhone 12</span><p>Explora todos los iPhone 12</p></div>
+<div class="carrusel" data-model="12">
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-12-black.jpg" alt="iPhone 12 Negro"><h3>iPhone 12</h3><p class="precio">$10,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Negro 64GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-12-white.jpg" alt="iPhone 12 Blanco"><h3>iPhone 12</h3><p class="precio">$11,199</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Blanco 128GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-12-blue.jpg" alt="iPhone 12 Azul"><h3>iPhone 12</h3><p class="precio">$11,399</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Azul 256GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-12-red.jpg" alt="iPhone 12 Rojo"><h3>iPhone 12</h3><p class="precio">$11,599</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Rojo 64GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-12-green.jpg" alt="iPhone 12 Verde"><h3>iPhone 12</h3><p class="precio">$11,799</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Verde 128GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-12-gold.jpg" alt="iPhone 12 Oro"><h3>iPhone 12</h3><p class="precio">$11,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Oro 256GB</p></div>
+</div>
+
+<!-- ------------------- iPhone 13 ------------------- -->
+<div class="carrusel-titulo"><span>iPhone 13</span><p>Explora todos los iPhone 13</p></div>
+<div class="carrusel" data-model="13">
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-13-black.jpg" alt="iPhone 13 Negro"><h3>iPhone 13</h3><p class="precio">$12,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Negro 128GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-13-white.jpg" alt="iPhone 13 Blanco"><h3>iPhone 13</h3><p class="precio">$13,199</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Blanco 256GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-13-blue.jpg" alt="iPhone 13 Azul"><h3>iPhone 13</h3><p class="precio">$13,399</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Azul 128GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-13-red.jpg" alt="iPhone 13 Rojo"><h3>iPhone 13</h3><p class="precio">$13,599</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Rojo 256GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-13-green.jpg" alt="iPhone 13 Verde"><h3>iPhone 13</h3><p class="precio">$13,799</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Verde 128GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-13-gold.jpg" alt="iPhone 13 Oro"><h3>iPhone 13</h3><p class="precio">$13,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Oro 256GB</p></div>
+</div>
+
+<!-- ------------------- iPhone 14 ------------------- -->
+<div class="carrusel-titulo"><span>iPhone 14</span><p>Explora todos los iPhone 14</p></div>
+<div class="carrusel" data-model="14">
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-14-black.jpg" alt="iPhone 14 Negro"><h3>iPhone 14</h3><p class="precio">$14,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Negro 128GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-14-white.jpg" alt="iPhone 14 Blanco"><h3>iPhone 14</h3><p class="precio">$15,199</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Blanco 256GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-14-blue.jpg" alt="iPhone 14 Azul"><h3>iPhone 14</h3><p class="precio">$15,399</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Azul 128GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-14-red.jpg" alt="iPhone 14 Rojo"><h3>iPhone 14</h3><p class="precio">$15,599</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Rojo 256GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-14-green.jpg" alt="iPhone 14 Verde"><h3>iPhone 14</h3><p class="precio">$15,799</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Verde 128GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-14-gold.jpg" alt="iPhone 14 Oro"><h3>iPhone 14</h3><p class="precio">$15,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Oro 256GB</p></div>
+</div>
+
+<!-- ------------------- iPhone 15 ------------------- -->
+<div class="carrusel-titulo"><span>iPhone 15</span><p>Explora todos los iPhone 15</p></div>
+<div class="carrusel" data-model="15">
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-15-black.jpg" alt="iPhone 15 Negro"><h3>iPhone 15</h3><p class="precio">$16,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Negro 128GB</p></div>
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-15-white.jpg" alt="iPhone 15 Blanco"><h3>iPhone 15</h3><p class="precio">$17,199</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Blanco 256GB</p></div>
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-15-blue.jpg" alt="iPhone 15 Azul"><h3>iPhone 15</h3><p class="precio">$17,399</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Azul 128GB</p></div>
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-15-red.jpg" alt="iPhone 15 Rojo"><h3>iPhone 15</h3><p class="precio">$17,599</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Rojo 256GB</p></div>
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-15-green.jpg" alt="iPhone 15 Verde"><h3>iPhone 15</h3><p class="precio">$17,799</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Verde 128GB</p></div>
+  <div class="tarjeta"><span class="badge">OFERTA</span><img src="iphone-15-gold.jpg" alt="iPhone 15 Oro"><h3>iPhone 15</h3><p class="precio">$17,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Oro 256GB</p></div>
+</div>
+
+<!-- ------------------- iPhone 16 ------------------- -->
+<div class="carrusel-titulo"><span>iPhone 16</span><p>Explora todos los iPhone 16</p></div>
+<div class="carrusel" data-model="16">
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-16-black.jpg" alt="iPhone 16 Negro"><h3>iPhone 16</h3><p class="precio">$18,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Negro 128GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-16-white.jpg" alt="iPhone 16 Blanco"><h3>iPhone 16</h3><p class="precio">$19,199</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Blanco 256GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-16-blue.jpg" alt="iPhone 16 Azul"><h3>iPhone 16</h3><p class="precio">$19,399</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Azul 128GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-16-red.jpg" alt="iPhone 16 Rojo"><h3>iPhone 16</h3><p class="precio">$19,599</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Rojo 256GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-16-green.jpg" alt="iPhone 16 Verde"><h3>iPhone 16</h3><p class="precio">$19,799</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Verde 128GB</p></div>
+  <div class="tarjeta"><span class="badge">NUEVO</span><img src="iphone-16-gold.jpg" alt="iPhone 16 Oro"><h3>iPhone 16</h3><p class="precio">$19,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Oro 256GB</p></div>
+</div>
+
+<!-- ------------------- iPhone 17 ------------------- -->
+<div class="carrusel-titulo"><span>iPhone 17</span><p>Explora todos los iPhone 17</p></div>
+<div class="carrusel" data-model="17">
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-17-black.jpg" alt="iPhone 17 Negro"><h3>iPhone 17</h3><p class="precio">$20,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Negro 128GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-17-white.jpg" alt="iPhone 17 Blanco"><h3>iPhone 17</h3><p class="precio">$21,199</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Blanco 256GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-17-blue.jpg" alt="iPhone 17 Azul"><h3>iPhone 17</h3><p class="precio">$21,399</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Azul 128GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-17-red.jpg" alt="iPhone 17 Rojo"><h3>iPhone 17</h3><p class="precio">$21,599</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Rojo 256GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-17-green.jpg" alt="iPhone 17 Verde"><h3>iPhone 17</h3><p class="precio">$21,799</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Verde 128GB</p></div>
+  <div class="tarjeta"><span class="badge">HOT</span><img src="iphone-17-gold.jpg" alt="iPhone 17 Oro"><h3>iPhone 17</h3><p class="precio">$21,999</p><a href="#" class="btn-card">Comprar</a><a href="#" class="btn-card">Agendar</a><p class="descripcion">Oro 256GB</p></div>
+</div>
+
+</section>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="whatsapp-float">
+<img src="whatsapp-icon.png" alt="WhatsApp">
+</a>
+
+<script>
+const buscador = document.querySelector('header input[type="search"]');
+buscador.addEventListener('input', e => {
+    const valor = e.target.value.toLowerCase();
+    document.querySelectorAll('.carrusel').forEach(carrusel => {
+        let anyVisible = false;
+        carrusel.querySelectorAll('.tarjeta').forEach(t => {
+            if(t.textContent.toLowerCase().includes(valor)){
+                t.style.display = 'block';
+                anyVisible = true;
+            } else {
+                t.style.display = 'none';
+            }
+        });
+        carrusel.previousElementSibling.style.display = anyVisible ? 'flex' : 'none'; // Titulo
+        carrusel.style.display = anyVisible ? 'flex' : 'none';
+    });
+});
+
+document.querySelectorAll('.carrusel').forEach(carrusel=>{
+    let scrollAmount = 0;
+    const step = carrusel.querySelector('.tarjeta').offsetWidth + 20; // gap
+    setInterval(()=>{
+        if(scrollAmount + carrusel.offsetWidth >= carrusel.scrollWidth){
+            scrollAmount = 0;
+        } else {
+            scrollAmount += step;
+        }
+        carrusel.scrollTo({left: scrollAmount, behavior: 'smooth'});
+    }, 4000);
+});
+
+
+
+</script>
+
+</body>
+</html>
